@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <main>
+      <h1>Bienvenido, {{ name }}</h1>
+      {% if persons %}
+      <p>Las personas conectadas son:</p>
+      <ul>
+          {% for person in persons %}
+          <li>{{ person.first_name }} {{ person.last_name}}</li>
+          <a href="{% url 'suma' person.age %}"><button>Sumar 2 a la edad</button></a>
+          {% endfor %}
+      </ul>
+      {% else %}
+      <p>No hay personas conectadas :(</p>
+      {% endif %}
+    </main>
+  </body>
+</html>
